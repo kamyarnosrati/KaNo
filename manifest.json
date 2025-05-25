@@ -1,0 +1,22 @@
+
+{
+  "name": "Repeat After Me",
+  "short_name": "Repeat",
+  "start_url": "./repeat_after_me_real_persian_with_toggle.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f4f4f4",
+  "description": "An English-Persian interactive speaking practice app.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

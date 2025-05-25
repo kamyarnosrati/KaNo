@@ -1,0 +1,1342 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+  <meta name="theme-color" content="#f4f4f4">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered:', reg.scope))
+        .catch(err => console.error('❌ Service Worker registration failed:', err));
+    }
+  </script>
+
+<meta charset="UTF-8">
+<title>Repeat After Me – Full Translation</title>
+<style>
+body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+.line { margin: 10px 0; font-size: 18px; cursor: pointer; }
+.active { background: #ffe066; font-size: 22px; font-weight: bold; }
+.translation { display: none; color: #555; margin-top: 4px; font-size: 16px; margin-left: 20px; }
+.controls { position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: #f4f4f4; padding: 10px 20px; border-bottom: 1px solid #ccc; }
+#lyrics { margin-top: 170px; }
+</style>
+</head>
+<body>
+<div class="controls">
+  <h2 style="margin: 0 0 10px 0;">🎧 Repeat After Me – English + Persian</h2>
+  <audio id="audio" controls style="width:100%; max-width:600px;">
+    <source src="audio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio><br>
+  <label for="speed">Speed:</label>
+  <select id="speed">
+    <option value="0.5">0.5x</option>
+    <option value="0.75">0.75x</option>
+    <option value="1" selected>1x</option>
+    <option value="1.25">1.25x</option>
+    <option value="1.5">1.5x</option>
+  </select>
+  <button id="repeat">🔁 Repeat</button>
+  <button id="autoPlay">▶️ Auto Play</button>
+  <button id="toggleAll">🈯 Show Translate</button>
+  <span id="timer" style="margin-left:20px; font-weight:bold;">00:00</span>
+</div>
+<div id="lyrics">
+
+<div class="line" data-start="0.00" data-duration="1.00" id="line0" onclick="toggleTranslation('t0')">
+  Okay, let's dive in.
+  <div class="translation" id="t0">خب، بیا شروع کنیم.</div>
+</div>
+
+<div class="line" data-start="1.00" data-duration="4.64" id="line1" onclick="toggleTranslation('t1')">
+  Think about that feeling you get, you know, when you're somewhere new, maybe feeling
+  <div class="translation" id="t1">به اون حسی فکر کن که بهت دست میده، میدونی، وقتی یه جای جدیدی، شاید احساس کنی</div>
+</div>
+
+<div class="line" data-start="5.64" data-duration="1.00" id="line2" onclick="toggleTranslation('t2')">
+  a little lost.
+  <div class="translation" id="t2">یه کم گم شدی.</div>
+</div>
+
+<div class="line" data-start="6.64" data-duration="1.00" id="line3" onclick="toggleTranslation('t3')">
+  Oh, definitely.
+  <div class="translation" id="t3">اوه، قطعاً.</div>
+</div>
+
+<div class="line" data-start="7.64" data-duration="1.60" id="line4" onclick="toggleTranslation('t4')">
+  That little moment of uncertainty.
+  <div class="translation" id="t4">اون لحظه‌ی کوچیک عدم قطعیت.</div>
+</div>
+
+<div class="line" data-start="9.24" data-duration="1.00" id="line5" onclick="toggleTranslation('t5')">
+  Exactly.
+  <div class="translation" id="t5">دقیقاً.</div>
+</div>
+
+<div class="line" data-start="10.24" data-duration="2.80" id="line6" onclick="toggleTranslation('t6')">
+  And you realize you need to ask someone for directions.
+  <div class="translation" id="t6">و متوجه میشی که باید از کسی آدرس بپرسی.</div>
+</div>
+
+<div class="line" data-start="13.04" data-duration="2.36" id="line7" onclick="toggleTranslation('t7')">
+  It's, well, it's pretty universal, right?
+  <div class="translation" id="t7">خب، این خیلی جهانیه، درسته؟</div>
+</div>
+
+<div class="line" data-start="15.40" data-duration="2.48" id="line8" onclick="toggleTranslation('t8')">
+  A moment where you kind of have to connect with a stranger.
+  <div class="translation" id="t8">لحظه‌ای که یه جورایی مجبوری با یه غریبه ارتباط برقرار کنی.</div>
+</div>
+
+<div class="line" data-start="17.88" data-duration="1.00" id="line9" onclick="toggleTranslation('t9')">
+  It really is.
+  <div class="translation" id="t9">واقعاً همینطوره.</div>
+</div>
+
+<div class="line" data-start="18.88" data-duration="4.08" id="line10" onclick="toggleTranslation('t10')">
+  Whether you're in a huge city or just, you know, a small town, you don't know, being
+  <div class="translation" id="t10">چه تو یه شهر خیلی بزرگ باشی یا فقط، میدونی، یه شهر کوچیک که نمیشناسیش، اینکه بتونی</div>
+</div>
+
+<div class="line" data-start="22.96" data-duration="4.36" id="line11" onclick="toggleTranslation('t11')">
+  able to ask for and crucially understand directions, that's fundamental.
+  <div class="translation" id="t11">آدرس بپرسی و مهمتر از اون بفهمی، این اساسیه.</div>
+</div>
+
+<div class="line" data-start="27.32" data-duration="2.52" id="line12" onclick="toggleTranslation('t12')">
+  It's about getting around, sure.
+  <div class="translation" id="t12">حتماً در مورد رفت و آمد کردنه.</div>
+</div>
+
+<div class="line" data-start="29.84" data-duration="3.24" id="line13" onclick="toggleTranslation('t13')">
+  But also just basic human interaction.
+  <div class="translation" id="t13">اما همچنین فقط تعامل انسانی اولیه است.</div>
+</div>
+
+<div class="line" data-start="33.08" data-duration="1.00" id="line14" onclick="toggleTranslation('t14')">
+  Yeah.
+  <div class="translation" id="t14">آره.</div>
+</div>
+
+<div class="line" data-start="34.08" data-duration="2.96" id="line15" onclick="toggleTranslation('t15')">
+  And for this deep dive, we've got some great source material.
+  <div class="translation" id="t15">و برای این بررسی عمیق، ما منابع خیلی خوبی داریم.</div>
+</div>
+
+<div class="line" data-start="37.04" data-duration="5.72" id="line16" onclick="toggleTranslation('t16')">
+  It's basically a collection of example conversations, people asking for and giving directions
+  <div class="translation" id="t16">اساساً مجموعه‌ای از مکالمات نمونه است، آدم‌هایی که آدرس می‌پرسن و آدرس میدن</div>
+</div>
+
+<div class="line" data-start="42.76" data-duration="1.00" id="line17" onclick="toggleTranslation('t17')">
+  in English.
+  <div class="translation" id="t17">به انگلیسی.</div>
+</div>
+
+<div class="line" data-start="43.76" data-duration="4.04" id="line18" onclick="toggleTranslation('t18')">
+  Plus, there's a handy review section with key words and phrases.
+  <div class="translation" id="t18">بعلاوه، یه بخش مرور مفید با کلمات و عبارات کلیدی هم هست.</div>
+</div>
+
+<div class="line" data-start="47.80" data-duration="2.16" id="line19" onclick="toggleTranslation('t19')">
+  So our goal here is to sort of unpack all that.
+  <div class="translation" id="t19">پس هدف ما اینجا اینه که یه جورایی همه‌ی اینا رو باز کنیم.</div>
+</div>
+
+<div class="line" data-start="49.96" data-duration="4.60" id="line20" onclick="toggleTranslation('t20')">
+  We want to pull out the core ideas, how people ask effectively, how directions are typically
+  <div class="translation" id="t20">می‌خوایم ایده‌های اصلی رو بیرون بکشیم، اینکه چطور مردم به طور موثر سوال می‌پرسن، چطور آدرس‌ها معمولاً</div>
+</div>
+
+<div class="line" data-start="54.56" data-duration="2.00" id="line21" onclick="toggleTranslation('t21')">
+  structured, the phrases they keep cropping up.
+  <div class="translation" id="t21">ساختاربندی میشن، عباراتی که مدام تکرار میشن.</div>
+</div>
+
+<div class="line" data-start="56.56" data-duration="1.00" id="line22" onclick="toggleTranslation('t22')">
+  Right.
+  <div class="translation" id="t22">درسته.</div>
+</div>
+
+<div class="line" data-start="57.56" data-duration="2.56" id="line23" onclick="toggleTranslation('t23')">
+  We're just memorizing English phrases that that's useful, of course.
+  <div class="translation" id="t23">ما فقط عبارات انگلیسی رو حفظ نمی‌کنیم که البته اونم مفیده.</div>
+</div>
+
+<div class="line" data-start="60.12" data-duration="3.28" id="line24" onclick="toggleTranslation('t24')">
+  It's more about understanding the logic behind it all.
+  <div class="translation" id="t24">بیشتر در مورد فهمیدن منطق پشت همه‌ی اینهاست.</div>
+</div>
+
+<div class="line" data-start="63.40" data-duration="3.44" id="line25" onclick="toggleTranslation('t25')">
+  Yeah, the principles that make it work, no matter the language, really.
+  <div class="translation" id="t25">آره، اصولی که باعث میشه کار کنه، واقعاً فرقی نمی‌کنه چه زبانی باشه.</div>
+</div>
+
+<div class="line" data-start="66.84" data-duration="3.96" id="line26" onclick="toggleTranslation('t26')">
+  We want you to feel more confident finding your way, whether you're actually using English
+  <div class="translation" id="t26">می‌خوایم احساس اعتماد به نفس بیشتری در پیدا کردن راهتون داشته باشید، چه واقعاً از انگلیسی استفاده می‌کنید</div>
+</div>
+
+<div class="line" data-start="70.80" data-duration="4.00" id="line27" onclick="toggleTranslation('t27')">
+  or just understanding how this kind of communication generally flows.
+  <div class="translation" id="t27">یا فقط می‌فهمید که این نوع ارتباط به طور کلی چطور جریان پیدا می‌کنه.</div>
+</div>
+
+<div class="line" data-start="74.80" data-duration="1.08" id="line28" onclick="toggleTranslation('t28')">
+  Exactly.
+  <div class="translation" id="t28">دقیقاً.</div>
+</div>
+
+<div class="line" data-start="75.88" data-duration="1.76" id="line29" onclick="toggleTranslation('t29')">
+  Let's get into the nuts and bolts of it.
+  <div class="translation" id="t29">بیا بریم سراغ جزئیاتش.</div>
+</div>
+
+<div class="line" data-start="77.64" data-duration="1.00" id="line30" onclick="toggleTranslation('t30')">
+  Okay.
+  <div class="translation" id="t30">خب.</div>
+</div>
+
+<div class="line" data-start="78.64" data-duration="3.88" id="line31" onclick="toggleTranslation('t31')">
+  So, starting points, how do these conversations usually begin?
+  <div class="translation" id="t31">خب، نقاط شروع، این مکالمات معمولاً چطور شروع میشن؟</div>
+</div>
+
+<div class="line" data-start="82.52" data-duration="3.00" id="line32" onclick="toggleTranslation('t32')">
+  When someone needs help, what are those first words?
+  <div class="translation" id="t32">وقتی کسی به کمک نیاز داره، اون کلمات اول چی هستن؟</div>
+</div>
+
+<div class="line" data-start="85.52" data-duration="4.68" id="line33" onclick="toggleTranslation('t33')">
+  Well, what really stands out from the examples is the politeness, almost always.
+  <div class="translation" id="t33">خب، چیزی که واقعاً از مثال‌ها برجسته میشه، تقریباً همیشه، ادب هست.</div>
+</div>
+
+<div class="line" data-start="90.20" data-duration="7.24" id="line34" onclick="toggleTranslation('t34')">
+  You hear things like, excuse me, can you help me, or, uh, hi, do you know where the, wherever
+  <div class="translation" id="t34">چیزهایی مثل، ببخشید، می‌تونید کمکم کنید، یا، اه، سلام، می‌دونید کجاست، هر جا که</div>
+</div>
+
+<div class="line" data-start="97.44" data-duration="1.00" id="line35" onclick="toggleTranslation('t35')">
+  it is?
+  <div class="translation" id="t35">هست؟</div>
+</div>
+
+<div class="line" data-start="98.44" data-duration="5.20" id="line36" onclick="toggleTranslation('t36')">
+  It immediately shows respect, you know, acknowledging you're asking for a favor for their time.
+  <div class="translation" id="t36">فوراً احترام رو نشون میده، میدونی، تصدیق می‌کنی که داری برای وقتشون درخواست لطف می‌کنی.</div>
+</div>
+
+<div class="line" data-start="103.64" data-duration="1.00" id="line37" onclick="toggleTranslation('t37')">
+  That's a good tone.
+  <div class="translation" id="t37">لحن خوبیه.</div>
+</div>
+
+<div class="line" data-start="104.64" data-duration="1.00" id="line38" onclick="toggleTranslation('t38')">
+  That makes total sense.
+  <div class="translation" id="t38">کاملاً منطقیه.</div>
+</div>
+
+<div class="line" data-start="105.64" data-duration="3.96" id="line39" onclick="toggleTranslation('t39')">
+  It's like a little signal, hey, I need something and I appreciate your help.
+  <div class="translation" id="t39">مثل یه سیگنال کوچیکه، هی، من یه چیزی لازم دارم و از کمکتون ممنونم.</div>
+</div>
+
+<div class="line" data-start="109.60" data-duration="2.40" id="line40" onclick="toggleTranslation('t40')">
+  And then there's the slightly more direct one, too, right?
+  <div class="translation" id="t40">و بعد یه کم مستقیم‌ترش هم هست، درسته؟</div>
+</div>
+
+<div class="line" data-start="112.00" data-duration="2.44" id="line41" onclick="toggleTranslation('t41')">
+  Like, excuse me, how can I get to funer from here?
+  <div class="translation" id="t41">مثل، ببخشید، چطور می‌تونم از اینجا به فونر برم؟</div>
+</div>
+
+<div class="line" data-start="114.44" data-duration="1.00" id="line42" onclick="toggleTranslation('t42')">
+  Yes.
+  <div class="translation" id="t42">بله.</div>
+</div>
+
+<div class="line" data-start="115.44" data-duration="1.00" id="line43" onclick="toggleTranslation('t43')">
+  Exactly.
+  <div class="translation" id="t43">دقیقاً.</div>
+</div>
+
+<div class="line" data-start="116.44" data-duration="1.00" id="line44" onclick="toggleTranslation('t44')">
+  That one's efficient.
+  <div class="translation" id="t44">اون یکی کارآمده.</div>
+</div>
+
+<div class="line" data-start="117.44" data-duration="1.00" id="line45" onclick="toggleTranslation('t45')">
+  Yeah.
+  <div class="translation" id="t45">آره.</div>
+</div>
+
+<div class="line" data-start="118.44" data-duration="1.00" id="line46" onclick="toggleTranslation('t46')">
+  It gives the context straight away.
+  <div class="translation" id="t46">فوراً زمینه رو مشخص می‌کنه.</div>
+</div>
+
+<div class="line" data-start="119.44" data-duration="1.00" id="line47" onclick="toggleTranslation('t47')">
+  Here's where I am.
+  <div class="translation" id="t47">من اینجا هستم.</div>
+</div>
+
+<div class="line" data-start="120.44" data-duration="1.00" id="line48" onclick="toggleTranslation('t48')">
+  Here's where I want to go.
+  <div class="translation" id="t48">اینجا جاییه که می‌خوام برم.</div>
+</div>
+
+<div class="line" data-start="121.44" data-duration="2.00" id="line49" onclick="toggleTranslation('t49')">
+  Helps the other person orient themselves immediately.
+  <div class="translation" id="t49">به طرف مقابل کمک می‌کنه فوراً خودش رو پیدا کنه.</div>
+</div>
+
+<div class="line" data-start="123.44" data-duration="1.00" id="line50" onclick="toggleTranslation('t50')">
+  Precisely.
+  <div class="translation" id="t50">دقیقاً.</div>
+</div>
+
+<div class="line" data-start="124.44" data-duration="5.00" id="line51" onclick="toggleTranslation('t51')">
+  So, those openings, they do a good job of stating the need and the basic situation quickly.
+  <div class="translation" id="t51">خب، اون شروع‌ها، کار خوبی در بیان سریع نیاز و وضعیت اولیه انجام میدن.</div>
+</div>
+
+<div class="line" data-start="129.44" data-duration="1.00" id="line52" onclick="toggleTranslation('t52')">
+  Okay.
+  <div class="translation" id="t52">خب.</div>
+</div>
+
+<div class="line" data-start="130.44" data-duration="4.16" id="line53" onclick="toggleTranslation('t53')">
+  So, once the request is made, how do people usually answer?
+  <div class="translation" id="t53">خب، وقتی درخواست مطرح شد، مردم معمولاً چطور جواب میدن؟</div>
+</div>
+
+<div class="line" data-start="134.60" data-duration="2.84" id="line54" onclick="toggleTranslation('t54')">
+  What's the typical flow for giving directions?
+  <div class="translation" id="t54">جریان معمول برای آدرس دادن چیه؟</div>
+</div>
+
+<div class="line" data-start="137.44" data-duration="1.00" id="line55" onclick="toggleTranslation('t55')">
+  Okay.
+  <div class="translation" id="t55">خب.</div>
+</div>
+
+<div class="line" data-start="138.44" data-duration="1.00" id="line56" onclick="toggleTranslation('t56')">
+  Yeah.
+  <div class="translation" id="t56">آره.</div>
+</div>
+
+<div class="line" data-start="139.44" data-duration="1.84" id="line57" onclick="toggleTranslation('t57')">
+  This is where you see a real pattern emerge.
+  <div class="translation" id="t57">اینجاست که یه الگوی واقعی پدیدار میشه.</div>
+</div>
+
+<div class="line" data-start="141.28" data-duration="4.92" id="line58" onclick="toggleTranslation('t58')">
+  It feels like someone's building a little mental map for you, step by step.
+  <div class="translation" id="t58">احساس می‌کنی یکی داره برات یه نقشه ذهنی کوچیک می‌سازه، قدم به قدم.</div>
+</div>
+
+<div class="line" data-start="146.20" data-duration="2.20" id="line59" onclick="toggleTranslation('t59')">
+  It is a logical progression, definitely.
+  <div class="translation" id="t59">قطعاً یه پیشرفت منطقیه.</div>
+</div>
+
+<div class="line" data-start="148.40" data-duration="4.80" id="line60" onclick="toggleTranslation('t60')">
+  Usually, it starts with the initial direction, establishing your path.
+  <div class="translation" id="t60">معمولاً با جهت اولیه شروع میشه، مسیرت رو مشخص می‌کنه.</div>
+</div>
+
+<div class="line" data-start="153.20" data-duration="1.00" id="line61" onclick="toggleTranslation('t61')">
+  Right.
+  <div class="translation" id="t61">درسته.</div>
+</div>
+
+<div class="line" data-start="154.20" data-duration="3.44" id="line62" onclick="toggleTranslation('t62')">
+  So, you get phrases like, walk straight down this street or even simpler.
+  <div class="translation" id="t62">خب، عباراتی مثل، مستقیم این خیابون رو برو پایین یا حتی ساده‌تر.</div>
+</div>
+
+<div class="line" data-start="157.64" data-duration="1.00" id="line63" onclick="toggleTranslation('t63')">
+  Just go straight.
+  <div class="translation" id="t63">فقط مستقیم برو.</div>
+</div>
+
+<div class="line" data-start="158.64" data-duration="1.00" id="line64" onclick="toggleTranslation('t64')">
+  Gives you that first move.
+  <div class="translation" id="t64">اون حرکت اول رو بهت میده.</div>
+</div>
+
+<div class="line" data-start="159.64" data-duration="1.00" id="line65" onclick="toggleTranslation('t65')">
+  Yeah.
+  <div class="translation" id="t65">آره.</div>
+</div>
+
+<div class="line" data-start="160.64" data-duration="1.00" id="line66" onclick="toggleTranslation('t66')">
+  Or sometimes more specific.
+  <div class="translation" id="t66">یا گاهی اوقات مشخص‌تر.</div>
+</div>
+
+<div class="line" data-start="161.64" data-duration="2.84" id="line67" onclick="toggleTranslation('t67')">
+  Like, walk down Park Avenue using the street name right away.
+  <div class="translation" id="t67">مثل، خیابان پارک رو برو پایین و فوراً از اسم خیابون استفاده می‌کنه.</div>
+</div>
+
+<div class="line" data-start="164.48" data-duration="1.00" id="line68" onclick="toggleTranslation('t68')">
+  Exactly.
+  <div class="translation" id="t68">دقیقاً.</div>
+</div>
+
+<div class="line" data-start="165.48" data-duration="1.00" id="line69" onclick="toggleTranslation('t69')">
+  A clear starting landmark.
+  <div class="translation" id="t69">یه نشانه‌ی شروع واضح.</div>
+</div>
+
+<div class="line" data-start="166.48" data-duration="3.60" id="line70" onclick="toggleTranslation('t70')">
+  Then, okay, you're going straight, but eventually you probably need to turn.
+  <div class="translation" id="t70">بعد، خب، داری مستقیم میری، اما بالاخره احتمالاً باید بپیچی.</div>
+</div>
+
+<div class="line" data-start="170.16" data-duration="2.52" id="line71" onclick="toggleTranslation('t71')">
+  It's not just turn left, usually.
+  <div class="translation" id="t71">معمولاً فقط بپیچ به چپ نیست.</div>
+</div>
+
+<div class="line" data-start="172.68" data-duration="2.56" id="line72" onclick="toggleTranslation('t72')">
+  The examples often give you more detail like which turn it is.
+  <div class="translation" id="t72">مثال‌ها اغلب جزئیات بیشتری بهت میدن مثل اینکه کدوم پیچه.</div>
+</div>
+
+<div class="line" data-start="175.24" data-duration="1.52" id="line73" onclick="toggleTranslation('t73')">
+  It's like a little navigation sequence.
+  <div class="translation" id="t73">مثل یه دنباله‌ی مسیریابی کوچیکه.</div>
+</div>
+
+<div class="line" data-start="176.76" data-duration="1.00" id="line74" onclick="toggleTranslation('t74')">
+  That's a great way to put it.
+  <div class="translation" id="t74">این روش خیلی خوبیه برای بیانش.</div>
+</div>
+
+<div class="line" data-start="177.76" data-duration="1.00" id="line75" onclick="toggleTranslation('t75')">
+  A sequence.
+  <div class="translation" id="t75">یه دنباله.</div>
+</div>
+
+<div class="line" data-start="178.76" data-duration="4.16" id="line76" onclick="toggleTranslation('t76')">
+  They often use those ordinal numbers, first, second, third, take the second right onto
+  <div class="translation" id="t76">اغلب از اون اعداد ترتیبی استفاده می‌کنن، اول، دوم، سوم، دومین راست رو بپیچ به</div>
+</div>
+
+<div class="line" data-start="182.92" data-duration="4.28" id="line77" onclick="toggleTranslation('t77')">
+  city avenue, something like that, or turn left at first street.
+  <div class="translation" id="t77">خیابان سیتی، یه چیزی شبیه این، یا تو خیابون اول به چپ بپیچ.</div>
+</div>
+
+<div class="line" data-start="187.20" data-duration="1.00" id="line78" onclick="toggleTranslation('t78')">
+  That avoids confusion, right?
+  <div class="translation" id="t78">این از سردرگمی جلوگیری می‌کنه، درسته؟</div>
+</div>
+
+<div class="line" data-start="188.20" data-duration="2.36" id="line79" onclick="toggleTranslation('t79')">
+  So, you're not just guessing it every corner.
+  <div class="translation" id="t79">خب، اینجوری نیست که سر هر پیچ حدس بزنی.</div>
+</div>
+
+<div class="line" data-start="190.56" data-duration="1.00" id="line80" onclick="toggleTranslation('t80')">
+  Definitely key.
+  <div class="translation" id="t80">قطعاً کلیدیه.</div>
+</div>
+
+<div class="line" data-start="191.56" data-duration="3.88" id="line81" onclick="toggleTranslation('t81')">
+  And alongside the turns, landmarks seem really important.
+  <div class="translation" id="t81">و در کنار پیچ‌ها، نشانه‌ها خیلی مهم به نظر میرسن.</div>
+</div>
+
+<div class="line" data-start="195.44" data-duration="2.12" id="line82" onclick="toggleTranslation('t82')">
+  Why do you think those pop up so often?
+  <div class="translation" id="t82">چرا فکر می‌کنی اینقدر زیاد ظاهر میشن؟</div>
+</div>
+
+<div class="line" data-start="197.92" data-duration="3.12" id="line83" onclick="toggleTranslation('t83')">
+  They're like visual checks, aren't they?
+  <div class="translation" id="t83">مثل چک‌های بصری هستن، مگه نه؟</div>
+</div>
+
+<div class="line" data-start="201.04" data-duration="4.32" id="line84" onclick="toggleTranslation('t84')">
+  Instead of just an abstract turn right, you have something real to look for.
+  <div class="translation" id="t84">به جای فقط یه پیچ به راست انتزاعی، یه چیز واقعی داری که دنبالش بگردی.</div>
+</div>
+
+<div class="line" data-start="205.36" data-duration="1.24" id="line85" onclick="toggleTranslation('t85')">
+  Turn right at the traffic lights.
+  <div class="translation" id="t85">سر چراغ راهنمایی به راست بپیچ.</div>
+</div>
+
+<div class="line" data-start="206.60" data-duration="1.00" id="line86" onclick="toggleTranslation('t86')">
+  That's super clear.
+  <div class="translation" id="t86">این خیلی واضحه.</div>
+</div>
+
+<div class="line" data-start="207.60" data-duration="1.00" id="line87" onclick="toggleTranslation('t87')">
+  It is.
+  <div class="translation" id="t87">هست.</div>
+</div>
+
+<div class="line" data-start="208.60" data-duration="3.24" id="line88" onclick="toggleTranslation('t88')">
+  Or the pharmacy will be on your left right next to the art museum.
+  <div class="translation" id="t88">یا داروخانه سمت چپ شما درست کنار موزه هنر خواهد بود.</div>
+</div>
+
+<div class="line" data-start="211.84" data-duration="2.76" id="line89" onclick="toggleTranslation('t89')">
+  Those things make it much easier to picture and follow.
+  <div class="translation" id="t89">این چیزا تصویرسازی و دنبال کردن رو خیلی راحت‌تر می‌کنه.</div>
+</div>
+
+<div class="line" data-start="214.60" data-duration="1.00" id="line90" onclick="toggleTranslation('t90')">
+  Exactly.
+  <div class="translation" id="t90">دقیقاً.</div>
+</div>
+
+<div class="line" data-start="215.60" data-duration="3.36" id="line91" onclick="toggleTranslation('t91')">
+  They're confirmation points, little milestones.
+  <div class="translation" id="t91">نقاط تأیید هستن، نقاط عطف کوچیک.</div>
+</div>
+
+<div class="line" data-start="218.96" data-duration="3.96" id="line92" onclick="toggleTranslation('t92')">
+  And often you'll also get a sense of distance, or maybe time.
+  <div class="translation" id="t92">و اغلب یه حسی از مسافت، یا شاید زمان هم بهت دست میده.</div>
+</div>
+
+<div class="line" data-start="222.92" data-duration="1.00" id="line93" onclick="toggleTranslation('t93')">
+  Oh, yeah.
+  <div class="translation" id="t93">اوه، آره.</div>
+</div>
+
+<div class="line" data-start="223.92" data-duration="1.28" id="line94" onclick="toggleTranslation('t94')">
+  Like, walk about two blocks.
+  <div class="translation" id="t94">مثل، حدود دو بلوک پیاده برو.</div>
+</div>
+
+<div class="line" data-start="225.20" data-duration="2.48" id="line95" onclick="toggleTranslation('t95')">
+  Right, or head straight for about five minutes.
+  <div class="translation" id="t95">درسته، یا حدود پنج دقیقه مستقیم برو.</div>
+</div>
+
+<div class="line" data-start="227.68" data-duration="3.64" id="line96" onclick="toggleTranslation('t96')">
+  It gives you a sense of scale, helps you feel if you're still on track, or if you've gone
+  <div class="translation" id="t96">بهت یه حس مقیاس میده، کمکت می‌کنه احساس کنی هنوز تو مسیری، یا اینکه</div>
+</div>
+
+<div class="line" data-start="231.32" data-duration="1.00" id="line97" onclick="toggleTranslation('t97')">
+  too far.
+  <div class="translation" id="t97">خیلی دور شدی.</div>
+</div>
+
+<div class="line" data-start="232.32" data-duration="6.36" id="line98" onclick="toggleTranslation('t98')">
+  And those little prepositions, worlds like on, across, next to, they seem simple, but they
+  <div class="translation" id="t98">و اون حروف اضافه‌ی کوچیک، کلماتی مثل روی، آن طرف، کنار، ساده به نظر میرسن، اما اونا</div>
+</div>
+
+<div class="line" data-start="238.68" data-duration="2.96" id="line99" onclick="toggleTranslation('t99')">
+  do a lot of heavy lifting and painting the final picture, don't they?
+  <div class="translation" id="t99">بار سنگینی در ترسیم تصویر نهایی به دوش می‌کشن، مگه نه؟</div>
+</div>
+
+<div class="line" data-start="241.64" data-duration="1.00" id="line100" onclick="toggleTranslation('t100')">
+  They really do.
+  <div class="translation" id="t100">واقعاً همینطوره.</div>
+</div>
+
+<div class="line" data-start="242.64" data-duration="5.52" id="line101" onclick="toggleTranslation('t101')">
+  On your left, on your right, across from next to, on the corner, they pinpoint the location
+  <div class="translation" id="t101">سمت چپت، سمت راستت، روبروی، کنار، نبش خیابون، اونا مکان رو دقیقاً مشخص می‌کنن</div>
+</div>
+
+<div class="line" data-start="248.16" data-duration="2.72" id="line102" onclick="toggleTranslation('t102')">
+  relative to you or those landmarks, we mentioned.
+  <div class="translation" id="t102">نسبت به تو یا اون نشانه‌هایی که گفتیم.</div>
+</div>
+
+<div class="line" data-start="250.88" data-duration="2.48" id="line103" onclick="toggleTranslation('t103')">
+  So it's not just vague, like, it's over there.
+  <div class="translation" id="t103">پس مبهم نیست، مثل، اونجاست.</div>
+</div>
+
+<div class="line" data-start="253.36" data-duration="1.00" id="line104" onclick="toggleTranslation('t104')">
+  Yeah.
+  <div class="translation" id="t104">آره.</div>
+</div>
+
+<div class="line" data-start="254.36" data-duration="1.00" id="line105" onclick="toggleTranslation('t105')">
+  Exactly.
+  <div class="translation" id="t105">دقیقاً.</div>
+</div>
+
+<div class="line" data-start="255.36" data-duration="4.80" id="line106" onclick="toggleTranslation('t106')">
+  It'll be on your right, across from the bookstore, much less room for error with that kind
+  <div class="translation" id="t106">سمت راستت خواهد بود، روبروی کتابفروشی، با این نوع جزئیات مکانی، جای خطای خیلی کمتری هست</div>
+</div>
+
+<div class="line" data-start="260.16" data-duration="1.00" id="line107" onclick="toggleTranslation('t107')">
+  of spatial detail.
+  <div class="translation" id="t107">از جزئیات مکانی.</div>
+</div>
+
+<div class="line" data-start="261.16" data-duration="2.92" id="line108" onclick="toggleTranslation('t108')">
+  I also kept noticing that phrase, you can't miss it.
+  <div class="translation" id="t108">من همچنین مدام متوجه اون عبارت میشدم، نمی‌تونی از دستش بدی.</div>
+</div>
+
+<div class="line" data-start="264.08" data-duration="3.28" id="line109" onclick="toggleTranslation('t109')">
+  It sounds so, I don't know, confident and reassuring.
+  <div class="translation" id="t109">خیلی، نمی‌دونم، با اعتماد به نفس و اطمینان‌بخش به نظر میرسه.</div>
+</div>
+
+<div class="line" data-start="267.36" data-duration="1.00" id="line110" onclick="toggleTranslation('t110')">
+  It does, doesn't it?
+  <div class="translation" id="t110">همینطوره، مگه نه؟</div>
+</div>
+
+<div class="line" data-start="268.36" data-duration="2.76" id="line111" onclick="toggleTranslation('t111')">
+  And it serves a purpose beyond just describing the place.
+  <div class="translation" id="t111">و هدفی فراتر از فقط توصیف مکان داره.</div>
+</div>
+
+<div class="line" data-start="271.12" data-duration="1.00" id="line112" onclick="toggleTranslation('t112')">
+  Oh.
+  <div class="translation" id="t112">اوه.</div>
+</div>
+
+<div class="line" data-start="272.12" data-duration="1.00" id="line113" onclick="toggleTranslation('t113')">
+  Yeah.
+  <div class="translation" id="t113">آره.</div>
+</div>
+
+<div class="line" data-start="273.12" data-duration="1.00" id="line114" onclick="toggleTranslation('t114')">
+  You can't miss it.
+  <div class="translation" id="t114">نمی‌تونی از دستش بدی.</div>
+</div>
+
+<div class="line" data-start="274.12" data-duration="3.12" id="line115" onclick="toggleTranslation('t115')">
+  It's partly about boosting the confidence of the person asking.
+  <div class="translation" id="t115">تا حدی در مورد افزایش اعتماد به نفس فرد سوال‌کننده است.</div>
+</div>
+
+<div class="line" data-start="277.24" data-duration="2.64" id="line116" onclick="toggleTranslation('t116')">
+  It implies the place is obvious, easy to spot.
+  <div class="translation" id="t116">اینطور القا می‌کنه که مکان واضحه، راحت پیدا میشه.</div>
+</div>
+
+<div class="line" data-start="279.88" data-duration="4.52" id="line117" onclick="toggleTranslation('t117')">
+  It helps reduce that little bit of anxiety about, you know, actually finding it.
+  <div class="translation" id="t117">کمک می‌کنه اون ذره اضطراب در مورد، میدونی، واقعاً پیدا کردنش کم بشه.</div>
+</div>
+
+<div class="line" data-start="284.40" data-duration="2.40" id="line118" onclick="toggleTranslation('t118')">
+  It's a small thing, but quite effective.
+  <div class="translation" id="t118">چیز کوچیکیه، اما خیلی موثره.</div>
+</div>
+
+<div class="line" data-start="286.80" data-duration="1.00" id="line119" onclick="toggleTranslation('t119')">
+  Huh.
+  <div class="translation" id="t119">هوم.</div>
+</div>
+
+<div class="line" data-start="287.80" data-duration="1.84" id="line120" onclick="toggleTranslation('t120')">
+  Interesting psychological element there.
+  <div class="translation" id="t120">عنصر روانشناسی جالبی اونجا هست.</div>
+</div>
+
+<div class="line" data-start="289.64" data-duration="4.88" id="line121" onclick="toggleTranslation('t121')">
+  We also saw some slight variations in phrasing, like using head down main street instead of
+  <div class="translation" id="t121">ما همچنین تغییرات جزئی در عبارت‌بندی دیدیم، مثل استفاده از "برو پایین خیابان اصلی" به جای</div>
+</div>
+
+<div class="line" data-start="294.52" data-duration="2.56" id="line122" onclick="toggleTranslation('t122')">
+  walk down or walk past the cinema.
+  <div class="translation" id="t122">"پیاده برو پایین" یا "از کنار سینما رد شو".</div>
+</div>
+
+<div class="line" data-start="297.08" data-duration="3.36" id="line123" onclick="toggleTranslation('t123')">
+  Are those just like more casual ways of saying the same thing?
+  <div class="translation" id="t123">آیا اینا فقط روش‌های خودمونی‌تری برای گفتن همون چیز هستن؟</div>
+</div>
+
+<div class="line" data-start="300.44" data-duration="1.00" id="line124" onclick="toggleTranslation('t124')">
+  Pretty much.
+  <div class="translation" id="t124">تقریباً.</div>
+</div>
+
+<div class="line" data-start="301.44" data-duration="4.00" id="line125" onclick="toggleTranslation('t125')">
+  Head down can feel a little more general, maybe less focused on the physical walking, just
+  <div class="translation" id="t125">"برو پایین" می‌تونه یه کم عمومی‌تر به نظر بیاد، شاید کمتر روی راه رفتن فیزیکی تمرکز داشته باشه، فقط</div>
+</div>
+
+<div class="line" data-start="305.44" data-duration="1.72" id="line126" onclick="toggleTranslation('t126')">
+  indicating the direction.
+  <div class="translation" id="t126">جهت رو نشون میده.</div>
+</div>
+
+<div class="line" data-start="307.16" data-duration="4.12" id="line127" onclick="toggleTranslation('t127')">
+  Walk past specifically tells you to continue beyond something before your next action.
+  <div class="translation" id="t127">"از کنار ... رد شو" به طور خاص بهت میگه قبل از اقدام بعدیت از کنار چیزی رد بشی و ادامه بدی.</div>
+</div>
+
+<div class="line" data-start="311.28" data-duration="1.00" id="line128" onclick="toggleTranslation('t128')">
+  Got it.
+  <div class="translation" id="t128">فهمیدم.</div>
+</div>
+
+<div class="line" data-start="312.28" data-duration="3.64" id="line129" onclick="toggleTranslation('t129')">
+  They're common, slightly more informal ways to guide someone, conveying the same core
+  <div class="translation" id="t129">روش‌های رایج و یه کم خودمونی‌تری برای راهنمایی کسی هستن، همون معنی اصلی</div>
+</div>
+
+<div class="line" data-start="315.92" data-duration="3.84" id="line130" onclick="toggleTranslation('t130')">
+  meaning as walk down or continue past, just slight nuances.
+  <div class="translation" id="t130">"پیاده برو پایین" یا "ادامه بده از کنار ..." رو میرسونن، فقط تفاوت‌های جزئی دارن.</div>
+</div>
+
+<div class="line" data-start="319.76" data-duration="1.00" id="line131" onclick="toggleTranslation('t131')">
+  Okay.
+  <div class="translation" id="t131">خب.</div>
+</div>
+
+<div class="line" data-start="320.76" data-duration="1.84" id="line132" onclick="toggleTranslation('t132')">
+  So you've got the directions, then what?
+  <div class="translation" id="t132">خب آدرس‌ها رو گرفتی، بعدش چی؟</div>
+</div>
+
+<div class="line" data-start="322.60" data-duration="1.00" id="line133" onclick="toggleTranslation('t133')">
+  Yeah.
+  <div class="translation" id="t133">آره.</div>
+</div>
+
+<div class="line" data-start="323.60" data-duration="1.00" id="line134" onclick="toggleTranslation('t134')">
+  It doesn't just end abruptly, right?
+  <div class="translation" id="t134">یهو تموم نمیشه، درسته؟</div>
+</div>
+
+<div class="line" data-start="324.60" data-duration="1.80" id="line135" onclick="toggleTranslation('t135')">
+  There's usually a wrap up.
+  <div class="translation" id="t135">معمولاً یه جمع‌بندی داره.</div>
+</div>
+
+<div class="line" data-start="326.40" data-duration="1.00" id="line136" onclick="toggleTranslation('t136')">
+  Absolutely.
+  <div class="translation" id="t136">قطعاً.</div>
+</div>
+
+<div class="line" data-start="327.40" data-duration="2.20" id="line137" onclick="toggleTranslation('t137')">
+  The politeness from the beginning comes back at the end.
+  <div class="translation" id="t137">ادب اول مکالمه، آخرش هم برمی‌گرده.</div>
+</div>
+
+<div class="line" data-start="329.60" data-duration="2.40" id="line138" onclick="toggleTranslation('t138')">
+  It's not just about the information, it's a social interaction.
+  <div class="translation" id="t138">فقط در مورد اطلاعات نیست، یه تعامل اجتماعیه.</div>
+</div>
+
+<div class="line" data-start="332.00" data-duration="1.00" id="line139" onclick="toggleTranslation('t139')">
+  Right.
+  <div class="translation" id="t139">درسته.</div>
+</div>
+
+<div class="line" data-start="333.00" data-duration="2.20" id="line140" onclick="toggleTranslation('t140')">
+  You see lots of, thank you so much or thanks a lot.
+  <div class="translation" id="t140">خیلی می‌بینی، خیلی ممنونم یا خیلی متشکرم.</div>
+</div>
+
+<div class="line" data-start="335.20" data-duration="1.00" id="line141" onclick="toggleTranslation('t141')">
+  Yeah.
+  <div class="translation" id="t141">آره.</div>
+</div>
+
+<div class="line" data-start="336.20" data-duration="1.00" id="line142" onclick="toggleTranslation('t142')">
+  It's friendly too.
+  <div class="translation" id="t142">دوستانه هم هست.</div>
+</div>
+
+<div class="line" data-start="337.20" data-duration="1.00" id="line143" onclick="toggleTranslation('t143')">
+  No problem.
+  <div class="translation" id="t143">مشکلی نیست.</div>
+</div>
+
+<div class="line" data-start="338.20" data-duration="1.00" id="line144" onclick="toggleTranslation('t144')">
+  You're welcome.
+  <div class="translation" id="t144">خواهش می‌کنم.</div>
+</div>
+
+<div class="line" data-start="339.20" data-duration="1.00" id="line145" onclick="toggleTranslation('t145')">
+  Anytime.
+  <div class="translation" id="t145">هر وقت.</div>
+</div>
+
+<div class="line" data-start="340.20" data-duration="5.52" id="line146" onclick="toggleTranslation('t146')">
+  Sometimes even enjoy your meal or enjoy your visit, depending on the destination and the
+  <div class="translation" id="t146">گاهی اوقات حتی نوش جان یا از بازدیدتون لذت ببرید، بسته به مقصد و</div>
+</div>
+
+<div class="line" data-start="345.72" data-duration="2.92" id="line147" onclick="toggleTranslation('t147')">
+  very casual no worries too.
+  <div class="translation" id="t147">خیلی خودمونی "نگران نباش" هم هست.</div>
+</div>
+
+<div class="line" data-start="348.64" data-duration="1.52" id="line148" onclick="toggleTranslation('t148')">
+  It rounds off the interaction nicely.
+  <div class="translation" id="t148">تعامل رو به خوبی به پایان میرسونه.</div>
+</div>
+
+<div class="line" data-start="350.16" data-duration="1.00" id="line149" onclick="toggleTranslation('t149')">
+  Yeah.
+  <div class="translation" id="t149">آره.</div>
+</div>
+
+<div class="line" data-start="351.16" data-duration="1.00" id="line150" onclick="toggleTranslation('t150')">
+  Okay.
+  <div class="translation" id="t150">خب.</div>
+</div>
+
+<div class="line" data-start="352.16" data-duration="2.20" id="line151" onclick="toggleTranslation('t151')">
+  And the source material had that vocabulary review section too.
+  <div class="translation" id="t151">و اون منبع، بخش مرور واژگان هم داشت.</div>
+</div>
+
+<div class="line" data-start="354.36" data-duration="1.92" id="line152" onclick="toggleTranslation('t152')">
+  Let's just quickly touch on those key bits.
+  <div class="translation" id="t152">بیا سریع به اون نکات کلیدی اشاره کنیم.</div>
+</div>
+
+<div class="line" data-start="356.28" data-duration="1.00" id="line153" onclick="toggleTranslation('t153')">
+  Go straight.
+  <div class="translation" id="t153">مستقیم برو.</div>
+</div>
+
+<div class="line" data-start="357.28" data-duration="1.00" id="line154" onclick="toggleTranslation('t154')">
+  That seems foundational.
+  <div class="translation" id="t154">این اساسی به نظر میرسه.</div>
+</div>
+
+<div class="line" data-start="358.28" data-duration="1.00" id="line155" onclick="toggleTranslation('t155')">
+  Totally.
+  <div class="translation" id="t155">کاملاً.</div>
+</div>
+
+<div class="line" data-start="359.28" data-duration="1.00" id="line156" onclick="toggleTranslation('t156')">
+  It's the baseline.
+  <div class="translation" id="t156">خط پایه است.</div>
+</div>
+
+<div class="line" data-start="360.28" data-duration="1.84" id="line157" onclick="toggleTranslation('t157')">
+  Keep going on your current path.
+  <div class="translation" id="t157">به مسیر فعلیت ادامه بده.</div>
+</div>
+
+<div class="line" data-start="362.12" data-duration="1.00" id="line158" onclick="toggleTranslation('t158')">
+  Simple.
+  <div class="translation" id="t158">ساده.</div>
+</div>
+
+<div class="line" data-start="363.12" data-duration="1.00" id="line159" onclick="toggleTranslation('t159')">
+  Direct.
+  <div class="translation" id="t159">مستقیم.</div>
+</div>
+
+<div class="line" data-start="364.12" data-duration="1.00" id="line160" onclick="toggleTranslation('t160')">
+  And then turn left.
+  <div class="translation" id="t160">و بعد به چپ بپیچ.</div>
+</div>
+
+<div class="line" data-start="365.12" data-duration="1.00" id="line161" onclick="toggleTranslation('t161')">
+  Obviously.
+  <div class="translation" id="t161">واضحاً.</div>
+</div>
+
+<div class="line" data-start="366.12" data-duration="4.20" id="line162" onclick="toggleTranslation('t162')">
+  But the review stresses being clear about which direction.
+  <div class="translation" id="t162">اما مرور روی واضح بودن در مورد اینکه کدوم جهت، تاکید می‌کنه.</div>
+</div>
+
+<div class="line" data-start="370.32" data-duration="1.32" id="line163" onclick="toggleTranslation('t163')">
+  Why is that so vital?
+  <div class="translation" id="t163">چرا اینقدر حیاتیه؟</div>
+</div>
+
+<div class="line" data-start="371.64" data-duration="2.24" id="line164" onclick="toggleTranslation('t164')">
+  Well ambiguity is your enemy here.
+  <div class="translation" id="t164">خب ابهام اینجا دشمن شماست.</div>
+</div>
+
+<div class="line" data-start="373.88" data-duration="4.16" id="line165" onclick="toggleTranslation('t165')">
+  A simple mix up between left and right sends you completely off course.
+  <div class="translation" id="t165">یه اشتباه ساده بین چپ و راست، کاملاً شما رو از مسیر خارج می‌کنه.</div>
+</div>
+
+<div class="line" data-start="378.04" data-duration="1.00" id="line166" onclick="toggleTranslation('t166')">
+  Clarity is everything.
+  <div class="translation" id="t166">وضوح همه چیزه.</div>
+</div>
+
+<div class="line" data-start="379.04" data-duration="1.00" id="line167" onclick="toggleTranslation('t167')">
+  Makes sense.
+  <div class="translation" id="t167">منطقیه.</div>
+</div>
+
+<div class="line" data-start="380.04" data-duration="1.68" id="line168" onclick="toggleTranslation('t168')">
+  Then the relative ones.
+  <div class="translation" id="t168">بعد موارد نسبی.</div>
+</div>
+
+<div class="line" data-start="381.72" data-duration="1.68" id="line169" onclick="toggleTranslation('t169')">
+  On your left right.
+  <div class="translation" id="t169">سمت چپ، راستت.</div>
+</div>
+
+<div class="line" data-start="383.40" data-duration="3.12" id="line170" onclick="toggleTranslation('t170')">
+  These depend completely on which way you're facing at that moment, right?
+  <div class="translation" id="t170">اینا کاملاً به این بستگی داره که در اون لحظه رو به کدوم سمت هستی، درسته؟</div>
+</div>
+
+<div class="line" data-start="386.52" data-duration="1.00" id="line171" onclick="toggleTranslation('t171')">
+  Exactly.
+  <div class="translation" id="t171">دقیقاً.</div>
+</div>
+
+<div class="line" data-start="387.52" data-duration="1.00" id="line172" onclick="toggleTranslation('t172')">
+  It's dynamic.
+  <div class="translation" id="t172">پویاست.</div>
+</div>
+
+<div class="line" data-start="388.52" data-duration="3.20" id="line173" onclick="toggleTranslation('t173')">
+  If you turn, your left and right change relative to the street.
+  <div class="translation" id="t173">اگه بپیچی، چپ و راستت نسبت به خیابون تغییر می‌کنه.</div>
+</div>
+
+<div class="line" data-start="391.72" data-duration="2.84" id="line174" onclick="toggleTranslation('t174')">
+  And across from that means directly opposite.
+  <div class="translation" id="t174">و "روبروی" یعنی دقیقاً مقابل.</div>
+</div>
+
+<div class="line" data-start="394.56" data-duration="1.92" id="line175" onclick="toggleTranslation('t175')">
+  It was something like a street in between.
+  <div class="translation" id="t175">یه چیزی مثل یه خیابون بینشون بود.</div>
+</div>
+
+<div class="line" data-start="396.48" data-duration="1.00" id="line176" onclick="toggleTranslation('t176')">
+  Okay.
+  <div class="translation" id="t176">خب.</div>
+</div>
+
+<div class="line" data-start="397.48" data-duration="4.64" id="line177" onclick="toggleTranslation('t177')">
+  And next to immediate adjacency, right beside it, maybe sharing a boundary or very close.
+  <div class="translation" id="t177">و "کنار" یعنی مجاورت فوری، درست کنارش، شاید یه مرز مشترک داشته باشن یا خیلی نزدیک باشن.</div>
+</div>
+
+<div class="line" data-start="402.12" data-duration="1.00" id="line178" onclick="toggleTranslation('t178')">
+  Got it.
+  <div class="translation" id="t178">فهمیدم.</div>
+</div>
+
+<div class="line" data-start="403.12" data-duration="2.32" id="line179" onclick="toggleTranslation('t179')">
+  Then take the first, second, left, right.
+  <div class="translation" id="t179">بعد اولین، دومین، چپ، راست رو بپیچ.</div>
+</div>
+
+<div class="line" data-start="405.44" data-duration="1.72" id="line180" onclick="toggleTranslation('t180')">
+  We talked about this, the counting.
+  <div class="translation" id="t180">در مورد این صحبت کردیم، شمارش.</div>
+</div>
+
+<div class="line" data-start="407.16" data-duration="2.36" id="line181" onclick="toggleTranslation('t181')">
+  Why is numbering the turns so crucial again?
+  <div class="translation" id="t181">چرا دوباره شماره‌گذاری پیچ‌ها اینقدر مهمه؟</div>
+</div>
+
+<div class="line" data-start="409.52" data-duration="2.24" id="line182" onclick="toggleTranslation('t182')">
+  It prevents turning too soon or too late.
+  <div class="translation" id="t182">از پیچیدن خیلی زود یا خیلی دیر جلوگیری می‌کنه.</div>
+</div>
+
+<div class="line" data-start="411.76" data-duration="2.08" id="line183" onclick="toggleTranslation('t183')">
+  It gives you that clear sequential instruction.
+  <div class="translation" id="t183">اون دستورالعمل متوالی واضح رو بهت میده.</div>
+</div>
+
+<div class="line" data-start="413.84" data-duration="1.00" id="line184" onclick="toggleTranslation('t184')">
+  Don't turn it any right.
+  <div class="translation" id="t184">به هر راستی نپیچ.</div>
+</div>
+
+<div class="line" data-start="414.84" data-duration="1.00" id="line185" onclick="toggleTranslation('t185')">
+  Turn it the second right.
+  <div class="translation" id="t185">به دومین راست بپیچ.</div>
+</div>
+
+<div class="line" data-start="415.84" data-duration="1.00" id="line186" onclick="toggleTranslation('t186')">
+  Right.
+  <div class="translation" id="t186">درسته.</div>
+</div>
+
+<div class="line" data-start="416.84" data-duration="1.00" id="line187" onclick="toggleTranslation('t187')">
+  Elivinates guesswork.
+  <div class="translation" id="t187">حدس و گمان رو از بین می‌بره.</div>
+</div>
+
+<div class="line" data-start="417.84" data-duration="1.72" id="line188" onclick="toggleTranslation('t188')">
+  And back to you can't miss it.
+  <div class="translation" id="t188">و برگردیم به "نمی‌تونی از دستش بدی".</div>
+</div>
+
+<div class="line" data-start="419.56" data-duration="2.36" id="line189" onclick="toggleTranslation('t189')">
+  The confidence booster we mentioned.
+  <div class="translation" id="t189">اون تقویت‌کننده‌ی اعتماد به نفسی که گفتیم.</div>
+</div>
+
+<div class="line" data-start="421.92" data-duration="2.28" id="line190" onclick="toggleTranslation('t190')">
+  Aimed at easing anxiety.
+  <div class="translation" id="t190">با هدف کاهش اضطراب.</div>
+</div>
+
+<div class="line" data-start="424.20" data-duration="4.64" id="line191" onclick="toggleTranslation('t191')">
+  And finally, those slightly more casual ones head down and walk past as alternatives
+  <div class="translation" id="t191">و در نهایت، اون موارد یه کم خودمونی‌تر "برو پایین" و "از کنار ... رد شو" به عنوان جایگزین‌هایی</div>
+</div>
+
+<div class="line" data-start="428.84" data-duration="2.48" id="line192" onclick="toggleTranslation('t192')">
+  for going straight or continuing beyond something.
+  <div class="translation" id="t192">برای مستقیم رفتن یا ادامه دادن از کنار چیزی.</div>
+</div>
+
+<div class="line" data-start="431.32" data-duration="1.00" id="line193" onclick="toggleTranslation('t193')">
+  Yeah.
+  <div class="translation" id="t193">آره.</div>
+</div>
+
+<div class="line" data-start="432.32" data-duration="1.60" id="line194" onclick="toggleTranslation('t194')">
+  Just slightly different flavors of instruction.
+  <div class="translation" id="t194">فقط طعم‌های یه کم متفاوت از دستورالعمل.</div>
+</div>
+
+<div class="line" data-start="433.92" data-duration="1.00" id="line195" onclick="toggleTranslation('t195')">
+  Okay.
+  <div class="translation" id="t195">خب.</div>
+</div>
+
+<div class="line" data-start="434.92" data-duration="1.04" id="line196" onclick="toggleTranslation('t196')">
+  So let's try and synthesize this.
+  <div class="translation" id="t196">خب بیا سعی کنیم اینو جمع‌بندی کنیم.</div>
+</div>
+
+<div class="line" data-start="435.96" data-duration="5.40" id="line197" onclick="toggleTranslation('t197')">
+  If we boil it all down, what are the absolute essentials for you, the listener, to remember
+  <div class="translation" id="t197">اگه همه‌شو خلاصه کنیم، موارد ضروری مطلق برای تو، شنونده، که به خاطر بسپاری</div>
+</div>
+
+<div class="line" data-start="441.36" data-duration="3.04" id="line198" onclick="toggleTranslation('t198')">
+  for asking for and understanding directions effectively?
+  <div class="translation" id="t198">برای پرسیدن و فهمیدن موثر آدرس‌ها چی هستن؟</div>
+</div>
+
+<div class="line" data-start="444.40" data-duration="2.84" id="line199" onclick="toggleTranslation('t199')">
+  Well, first off, when asking, start politely.
+  <div class="translation" id="t199">خب، اول از همه، وقتی می‌پرسی، مودبانه شروع کن.</div>
+</div>
+
+<div class="line" data-start="447.24" data-duration="3.88" id="line200" onclick="toggleTranslation('t200')">
+  Be clear about where you want to go and maybe where you are now if it helps.
+  <div class="translation" id="t200">واضح بگو کجا می‌خوای بری و شاید الان کجایی اگه کمک می‌کنه.</div>
+</div>
+
+<div class="line" data-start="451.12" data-duration="1.00" id="line201" onclick="toggleTranslation('t201')">
+  Okay.
+  <div class="translation" id="t201">خب.</div>
+</div>
+
+<div class="line" data-start="452.12" data-duration="1.64" id="line202" onclick="toggleTranslation('t202')">
+  Politeness and clarity up front.
+  <div class="translation" id="t202">ادب و وضوح در ابتدا.</div>
+</div>
+
+<div class="line" data-start="453.76" data-duration="3.80" id="line203" onclick="toggleTranslation('t203')">
+  And when you're receiving directions, listen actively for that sequence.
+  <div class="translation" id="t203">و وقتی داری آدرس می‌گیری، فعالانه به اون دنباله گوش بده.</div>
+</div>
+
+<div class="line" data-start="457.56" data-duration="7.08" id="line204" onclick="toggleTranslation('t204')">
+  It's usually go straight, then a specific turn, often numbered, maybe reference a landmark.
+  <div class="translation" id="t204">معمولاً مستقیم برو، بعد یه پیچ مشخص، اغلب شماره‌گذاری شده، شاید به یه نشانه اشاره کنه.</div>
+</div>
+
+<div class="line" data-start="464.64" data-duration="1.00" id="line205" onclick="toggleTranslation('t205')">
+  Try to visualize it.
+  <div class="translation" id="t205">سعی کن تجسمش کنی.</div>
+</div>
+
+<div class="line" data-start="465.64" data-duration="1.96" id="line206" onclick="toggleTranslation('t206')">
+  Ah, the visualization part.
+  <div class="translation" id="t206">آه، بخش تجسم.</div>
+</div>
+
+<div class="line" data-start="467.60" data-duration="1.00" id="line207" onclick="toggleTranslation('t207')">
+  That seems really key.
+  <div class="translation" id="t207">اون واقعاً کلیدی به نظر میرسه.</div>
+</div>
+
+<div class="line" data-start="468.60" data-duration="2.44" id="line208" onclick="toggleTranslation('t208')">
+  Like playing a little movie in your head as they speak.
+  <div class="translation" id="t208">مثل پخش کردن یه فیلم کوچیک تو ذهنت همزمان با صحبت کردنشون.</div>
+</div>
+
+<div class="line" data-start="471.04" data-duration="1.00" id="line209" onclick="toggleTranslation('t209')">
+  Exactly.
+  <div class="translation" id="t209">دقیقاً.</div>
+</div>
+
+<div class="line" data-start="472.04" data-duration="3.36" id="line210" onclick="toggleTranslation('t210')">
+  If you can picture yourself walking down the street, seeing the traffic light, making
+  <div class="translation" id="t210">اگه بتونی خودتو در حال راه رفتن تو خیابون، دیدن چراغ راهنمایی، پیچیدن</div>
+</div>
+
+<div class="line" data-start="475.40" data-duration="6.16" id="line211" onclick="toggleTranslation('t211')">
+  that second right, it makes it much easier to remember and follow accurately.
+  <div class="translation" id="t211">به اون دومین راست، تجسم کنی، به خاطر سپردن و دنبال کردن دقیقش خیلی راحت‌تر میشه.</div>
+</div>
+
+<div class="line" data-start="481.56" data-duration="1.64" id="line212" onclick="toggleTranslation('t212')">
+  Engage that visual memory.
+  <div class="translation" id="t212">اون حافظه‌ی بصری رو درگیر کن.</div>
+</div>
+
+<div class="line" data-start="483.20" data-duration="1.00" id="line213" onclick="toggleTranslation('t213')">
+  Great tip.
+  <div class="translation" id="t213">نکته‌ی عالیه.</div>
+</div>
+
+<div class="line" data-start="484.20" data-duration="1.00" id="line214" onclick="toggleTranslation('t214')">
+  Okay.
+  <div class="translation" id="t214">خب.</div>
+</div>
+
+<div class="line" data-start="485.20" data-duration="4.56" id="line215" onclick="toggleTranslation('t215')">
+  So wrapping up this deep dive, we've covered quite a bit about, well, the surprisingly detailed
+  <div class="translation" id="t215">خب با جمع‌بندی این بررسی عمیق، ما خیلی چیزا رو در مورد، خب، فرآیند به طرز شگفت‌انگیزی با جزئیات</div>
+</div>
+
+<div class="line" data-start="489.76" data-duration="1.32" id="line216" onclick="toggleTranslation('t216')">
+  process of directions.
+  <div class="translation" id="t216">آدرس دادن پوشش دادیم.</div>
+</div>
+
+<div class="line" data-start="491.08" data-duration="1.00" id="line217" onclick="toggleTranslation('t217')">
+  We really have.
+  <div class="translation" id="t217">واقعاً همینطوره.</div>
+</div>
+
+<div class="line" data-start="492.08" data-duration="2.12" id="line218" onclick="toggleTranslation('t218')">
+  From those polite ways to start the conversation.
+  <div class="translation" id="t218">از اون روش‌های مودبانه برای شروع مکالمه.</div>
+</div>
+
+<div class="line" data-start="494.20" data-duration="1.00" id="line219" onclick="toggleTranslation('t219')">
+  Mm-hmm.
+  <div class="translation" id="t219">هوم هوم.</div>
+</div>
+
+<div class="line" data-start="495.20" data-duration="1.00" id="line220" onclick="toggleTranslation('t220')">
+  To the logical steps.
+  <div class="translation" id="t220">تا مراحل منطقی.</div>
+</div>
+
+<div class="line" data-start="496.20" data-duration="2.48" id="line221" onclick="toggleTranslation('t221')">
+  Straight paths, numbered turns, using landmarks.
+  <div class="translation" id="t221">مسیرهای مستقیم، پیچ‌های شماره‌گذاری شده، استفاده از نشانه‌ها.</div>
+</div>
+
+<div class="line" data-start="498.68" data-duration="5.52" id="line222" onclick="toggleTranslation('t222')">
+  The importance of prepositions like next to or across from, for pinpointing the spot.
+  <div class="translation" id="t222">اهمیت حروف اضافه‌ای مثل "کنار" یا "روبروی"، برای مشخص کردن دقیق مکان.</div>
+</div>
+
+<div class="line" data-start="504.20" data-duration="2.56" id="line223" onclick="toggleTranslation('t223')">
+  And those friendly ways to say thanks and wrap things up.
+  <div class="translation" id="t223">و اون روش‌های دوستانه برای تشکر کردن و جمع‌بندی کردن.</div>
+</div>
+
+<div class="line" data-start="506.76" data-duration="1.00" id="line224" onclick="toggleTranslation('t224')">
+  Plus the key vocabulary.
+  <div class="translation" id="t224">بعلاوه‌ی واژگان کلیدی.</div>
+</div>
+
+<div class="line" data-start="507.76" data-duration="1.00" id="line225" onclick="toggleTranslation('t225')">
+  Right.
+  <div class="translation" id="t225">درسته.</div>
+</div>
+
+<div class="line" data-start="508.76" data-duration="3.00" id="line226" onclick="toggleTranslation('t226')">
+  We've sort of dissected the anatomy of giving and getting directions.
+  <div class="translation" id="t226">ما یه جورایی آناتومی آدرس دادن و گرفتن رو تشریح کردیم.</div>
+</div>
+
+<div class="line" data-start="511.76" data-duration="1.00" id="line227" onclick="toggleTranslation('t227')">
+  Indeed.
+  <div class="translation" id="t227">در واقع.</div>
+</div>
+
+<div class="line" data-start="512.76" data-duration="1.28" id="line228" onclick="toggleTranslation('t228')">
+  We looked at the building blocks.
+  <div class="translation" id="t228">ما به اجزای سازنده نگاه کردیم.</div>
+</div>
+
+<div class="line" data-start="514.04" data-duration="4.92" id="line229" onclick="toggleTranslation('t229')">
+  So here's a final thought for you to chew on next time you're out and about somewhere unfamiliar.
+  <div class="translation" id="t229">خب اینم یه فکر نهایی برای شما که دفعه‌ی بعد که جایی ناآشنا بیرون هستید، بهش فکر کنید.</div>
+</div>
+
+<div class="line" data-start="518.96" data-duration="2.84" id="line230" onclick="toggleTranslation('t230')">
+  Think about how culture might play a role.
+  <div class="translation" id="t230">به این فکر کنید که فرهنگ چطور می‌تونه نقش داشته باشه.</div>
+</div>
+
+<div class="line" data-start="521.80" data-duration="3.92" id="line231" onclick="toggleTranslation('t231')">
+  Do you think directions are given or understood differently in other cultures?
+  <div class="translation" id="t231">فکر می‌کنید آدرس‌ها در فرهنگ‌های دیگه متفاوت داده میشن یا فهمیده میشن؟</div>
+</div>
+
+<div class="line" data-start="525.72" data-duration="1.72" id="line232" onclick="toggleTranslation('t232')">
+  Beyond these English examples we looked at.
+  <div class="translation" id="t232">فراتر از این مثال‌های انگلیسی که بررسی کردیم.</div>
+</div>
+
+<div class="line" data-start="527.44" data-duration="2.00" id="line233" onclick="toggleTranslation('t233')">
+  Oh, that's a fascinating question.
+  <div class="translation" id="t233">اوه، سوال جالبیه.</div>
+</div>
+
+<div class="line" data-start="529.44" data-duration="1.68" id="line234" onclick="toggleTranslation('t234')">
+  And what about non-verbal stuff?
+  <div class="translation" id="t234">و در مورد مسائل غیرکلامی چطور؟</div>
+</div>
+
+<div class="line" data-start="531.12" data-duration="5.00" id="line235" onclick="toggleTranslation('t235')">
+  Like how important are gestures pointing maybe even someone's tone of voice when they're
+  <div class="translation" id="t235">مثلاً حرکات اشاره، اشاره کردن، شاید حتی لحن صدای کسی وقتی که</div>
+</div>
+
+<div class="line" data-start="536.12" data-duration="1.72" id="line236" onclick="toggleTranslation('t236')">
+  trying to help you find your way?
+  <div class="translation" id="t236">سعی می‌کنه کمکت کنه راهتو پیدا کنی، چقدر مهمه؟</div>
+</div>
+
+<div class="line" data-start="537.84" data-duration="3.96" id="line237" onclick="toggleTranslation('t237')">
+  Yeah, definitely things to observe and think about on your next trip or just exploring
+  <div class="translation" id="t237">آره، قطعاً چیزایی هستن که تو سفر بعدیتون یا فقط موقع گشتن تو</div>
+</div>
+
+<div class="line" data-start="541.80" data-duration="1.00" id="line238" onclick="toggleTranslation('t238')">
+  a new neighborhood.
+  <div class="translation" id="t238">یه محله‌ی جدید، باید مشاهده کنید و بهشون فکر کنید.</div>
+</div>
+
+</div>
+<script>
+const audio = document.getElementById('audio');
+const speedSelector = document.getElementById('speed');
+const timerDisplay = document.getElementById('timer');
+const repeatButton = document.getElementById('repeat');
+const autoPlayButton = document.getElementById('autoPlay');
+const lines = document.querySelectorAll('.line');
+
+let lastLineTime = 0;
+let autoIndex = 0;
+let isAutoPlaying = false;
+
+audio.ontimeupdate = () => {
+    const currentTime = audio.currentTime;
+    timerDisplay.textContent = formatTime(currentTime);
+    lines.forEach((line, index) => {
+        const start = parseFloat(line.getAttribute('data-start'));
+        const nextLine = lines[index + 1];
+        const end = nextLine ? parseFloat(nextLine.getAttribute('data-start')) : Infinity;
+        if (currentTime >= start && currentTime < end) {
+            line.classList.add('active');
+            lastLineTime = start;
+            scrollToLine(line);
+        } else {
+            line.classList.remove('active');
+        }
+    });
+};
+
+speedSelector.onchange = () => {
+    audio.playbackRate = parseFloat(speedSelector.value);
+};
+
+repeatButton.onclick = () => {
+    audio.currentTime = lastLineTime;
+};
+
+autoPlayButton.onclick = () => {
+    isAutoPlaying = !autoPlayButton.classList.contains('active');
+    if (isAutoPlaying) {
+        autoPlayButton.classList.add('active');
+        autoPlayButton.textContent = '⏸ Stop';
+        autoIndex = 0;
+        autoPlayNext();
+    } else {
+        autoPlayButton.classList.remove('active');
+        autoPlayButton.textContent = '▶️ Auto Play';
+        audio.pause();
+    }
+};
+
+function autoPlayNext() {
+    if (!isAutoPlaying || autoIndex >= lines.length) return;
+    const line = lines[autoIndex];
+    const start = parseFloat(line.getAttribute('data-start'));
+    const duration = parseFloat(line.getAttribute('data-duration'));
+    const pauseTime = duration + 1.5;
+    audio.currentTime = start;
+    audio.play();
+    setTimeout(() => {
+        audio.pause();
+        autoIndex++;
+        setTimeout(autoPlayNext, 1300);
+    }, pauseTime * 1000);
+}
+
+function formatTime(seconds) {
+    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+    const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+}
+
+function toggleTranslation(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+
+function scrollToLine(line) {
+    const offset = line.getBoundingClientRect().top + window.scrollY - window.innerHeight / 3;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+}
+
+const toggleAllButton = document.getElementById('toggleAll');
+let allShown = false;
+
+toggleAllButton.onclick = () => {
+    allShown = !allShown;
+    document.querySelectorAll('.translation').forEach(tr => {
+        tr.style.display = allShown ? 'block' : 'none';
+    });
+    toggleAllButton.textContent = allShown ? '🈯 Hide Translate' : '🈯 Show Translate';
+};
+
+</script>
+</body>
+</html>
