@@ -2,7 +2,7 @@
 {
   "name": "Repeat After Me",
   "short_name": "Repeat",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#f4f4f4",
